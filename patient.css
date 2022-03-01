@@ -1,109 +1,116 @@
 /* * Universal Style */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Raleway", sans-serif;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
 
-  /* body {
-    /* background-color: rgb(93, 185, 185) */
-  /* } */ */
-  
-  /* *Div Styles */
-  .flex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15vh;
-  }
-  
-  h2 {
-    border-bottom: 1px solid rgb(97, 221, 39);
-    text-align: center;
-    color: blue;
-  }
-  
-  /* *Form elements styles */
-  form.registerForm {
-    display: table;
-    border: 1px solid black;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 3px 50px rgb(0 0 0 / 0.2);
-  }
-  
-  div.ip {
-    display: table-row;
-  }
-  
-  label,
-  input,
-  select {
-    display: table-cell;
-    margin-bottom: 1rem;
-  }
-  
-  label {
-    padding-right: 3rem;
-  }
-  
-  /* *Button Styles */
-  .action1 {
-    padding: 0.5em 1em;
-    margin-right: 2em;
-    border-radius: 5px;
-    font-size: 1em;
-    background-color: greenyellow;
-  }
+/* *Div Styles */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15vh;
+}
 
-  .action2 {
-    padding: 0.5em 1em;
-    margin-right: 2em;
-    border-radius: 5px;
-    font-size: 1em;
-    background-color: rgb(221, 113, 113);
-  }
-  
-  input[type="text"] {
-    border: 1px solid black;
-    background-color: #ccc;
-    width: 480px;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border-radius: 10px;
-  }
-  
-  input[type="date"] {
-    border: 1px solid black;
-    background-color: #ccc;
-    width: 300px;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border-radius: 10px;
-  }
+h2 {
+  border-bottom: 1px solid rgb(97, 221, 39);
+  text-align: center;
+  color: blue;
+}
 
+/* *Form elements styles */
+form.registerForm {
+  display: table;
+  border: 1px solid black;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 1;
+}
 
-  .form-control {
-    border: 1px solid black;
-    background-color: #ccc;
-    width: 300px;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border-radius: 10px;
-  }
-  
-  /* !Trying to center a div */
-  /* .grid {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%)j;
-  } */
-  
-  /* .grid {
-      display: grid;
-      place-items: center;
-      margin: 10px;
-  } */
-  
+div.ip {
+  display: table-row;
+}
+
+label,
+input,
+select {
+  display: table-cell;
+  margin-bottom: 1rem;
+}
+
+label {
+  padding-right: 3rem;
+}
+
+/* *Button Styles */
+.action1 {
+  padding: 0.5em 1em;
+  margin-right: 2em;
+  border-radius: 5px;
+  font-size: 1em;
+  background-color: greenyellow;
+}
+
+.action2 {
+  padding: 0.5em 1em;
+  margin-right: 2em;
+  border-radius: 5px;
+  font-size: 1em;
+  /* background-color: green; */
+}
+
+input[type="text"] {
+  border: 1px solid black;
+  background-color: #ccc;
+  width: 480px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+input[type="date"] {
+  border: 1px solid black;
+  background-color: #ccc;
+  width: 300px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.form-control {
+  border: 1px solid black;
+  background-color: #ccc;
+  width: 300px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+/* *Error Message Styles */
+.fieldInfoHeading {
+  color: red;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.success {
+  color: green;
+  font-size: 1.2rem;
+}
+
+/* !Trying to center a div */
+/* .grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)j;
+} */
+
+/* .grid {
+    display: grid;
+    place-items: center;
+    margin: 10px;
+} */

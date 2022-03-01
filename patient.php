@@ -1,3 +1,45 @@
+<?php
+
+require_once("./included/DB.php");
+
+if (isset($_POST["submit"])) {
+    if (!empty($_POST["patient"]) && (!empty($_POST["surname"]))) {
+        $patient = $_POST["patient"];
+        $first_name = $_POST["first_name"];
+        $middle_name = $_POST["middle_name"];
+        $surname = $_POST["surname"];
+        $dob = $_POST["dob"];
+        $gender = $_POST["gender"];
+        $county = $_POST["county"];
+
+        $ConnectingDB;
+        $sql = "INSERT INTO p_record(patient, first_name, middle_name, surname, dob, gender, county)
+        VALUES(:patienT,:first_namE,:middle_namE,:surnamE,:doB,:gendeR,:countY)";
+
+        $stmt = $ConnectingDB->prepare($sql);
+
+        $stmt->bindValue(':patienT', $patient);
+        $stmt->bindValue(':first_namE', $first_name);
+        $stmt->bindValue(':middle_namE', $middle_name);
+        $stmt->bindValue(':surnamE', $surname);
+        $stmt->bindValue(':doB', $dob);
+        $stmt->bindValue(':gendeR', $gender);
+        $stmt->bindValue(':countY', $county);
+
+        $execute = $stmt->execute();
+        if ($execute) {
+            echo '<span class="success"> Record has been added Successfully</span>';
+        }
+    } else {
+        echo '<span class="fieldInfoHeading"> Please add Patient ID and Surname to Continue </span>';
+    }
+}
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +58,7 @@
 
     <div class="flex">
 
-        <form action="" method="post" class="registerForm">
+        <form action="./patient.php" method="post" class="registerForm">
 
             <h2>Register Patient</h2>
 
@@ -30,36 +72,36 @@
             <br>
 
             <div class="ip">
-                <label for="fname">First Name: </label>
-                <input type="text" name="fname" id="fname">
+                <label for="first_name">First Name: </label>
+                <input type="text" name="first_name" id="first_name">
             </div>
 
             <br>
 
             <div class="ip">
-                <label for="mid_name">First Name: </label>
-                <input type="text" name="mname" id="mid_name" required>
+                <label for="middle_name">Middle Name: </label>
+                <input type="text" name="middle_name" id="middle_name">
             </div>
 
             <br>
 
             <div class="ip">
-                <label for="sir_name">Middle Name: </label>
-                <input type="text" name="sname" id="sir_name" required>
+                <label for="surname">Surname Name: </label>
+                <input type="text" name="surname" id="surname">
             </div>
 
             <br>
 
             <div class="ip">
-                <label for="do_birth">Date of Birth: </label>
-                <input type="date" name="dateofb" id="do_birth" value="mm/dd/yyy" required>
+                <label for="dob">Date of Birth: </label>
+                <input type="date" name="dob" id="dob" value="mm/dd/yyy">
             </div>
 
             <br>
 
             <div class="ip">
-                <label for=" gender_id">Gender: </label>
-                <select class="form-control" name="gender" id="gender_id" required>
+                <label for=" gender">Gender: </label>
+                <select class="form-control" name="gender" id="gender">
                     <option value="">Select...</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -70,8 +112,8 @@
             <br>
 
             <div class="ip">
-                <label for="county_id">County of Residence</label>
-                <select class="form-control" name="county_id" id="county_id">
+                <label for="county">County of Residence</label>
+                <select class="form-control" name="county" id="county">
                     <option value="">Select...</option>
                     <option value='Baringo'>Baringo</option>
                     <option value='Bomet'>Bomet</option>
@@ -126,7 +168,7 @@
             <br>
 
             <div class="bt">
-                <input class="action1" type="submit" value="Send">
+                <input class="action1" type="submit" value="submit" name="submit">
                 <input class="action2" type="submit" value="Clear">
             </div>
 
