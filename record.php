@@ -1,3 +1,9 @@
+<?php
+
+require_once("./included/DB.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,52 +19,53 @@
 </head>
 
 <body>
+
     <div class="table">
 
     </div>
 
     <table>
         <tr>
+            <th>ID</th>
             <th>Patient ID</th>
             <th>First Name</th>
-            <th>Last Name</th>
+            <th>Middle Name</th>
+            <th>Surname Name</th>
+            <th>Date of Birth</th>
             <th>Gender</th>
             <th>County</th>
-            <th>Age</th>
         </tr>
 
-        <tr>
-            <td>29398</td>
-            <td>Syd</td>
-            <td>Ney</td>
-            <td>Female</td>
-            <td>Nairobi</td>
-            <td>19</td>
-        </tr>
-        <tr>
-            <td>27943</td>
-            <td>Mid</td>
-            <td>Bree</td>
-            <td>Male</td>
-            <td>Bungoma</td>
-            <td>30</td>
-        </tr>
-        <tr>
-            <td>28439</td>
-            <td>Bret</td>
-            <td>Man</td>
-            <td>Male</td>
-            <td>Kericho</td>
-            <td>20</td>
-        </tr>
-        <tr>
-            <td>29389</td>
-            <td>Sj</td>
-            <td>Blue</td>
-            <td>Female</td>
-            <td>Mombasa</td>
-            <td>35</td>
-        </tr>
+        <?php
+        $ConnectingDB;
+
+        $sql = "SELECT * FROM p_record";
+        $stmt = $ConnectingDB->query($sql);
+
+        while ($DataRows = $stmt->fetch()) {
+            $Id = $DataRows["id"];
+            $patient = $DataRows["patient"];
+            $first_name = $DataRows["first_name"];
+            $middle_name = $DataRows["middle_name"];
+            $surname = $DataRows["surname"];
+            $dob = $DataRows["dob"];
+            $gender = $DataRows["gender"];
+            $county = $DataRows["county"];
+        ?>
+
+            <tr>
+                <td><?php echo $Id ?></td>
+                <td><?php echo $patient ?></td>
+                <td><?php echo $first_name ?></td>
+                <td><?php echo $middle_name ?></td>
+                <td><?php echo $surname ?></td>
+                <td><?php echo $dob ?></td>
+                <td><?php echo $gender ?></td>
+                <td><?php echo $county ?></td>
+            </tr>
+
+        <?php } ?>
+
 
     </table>
 
