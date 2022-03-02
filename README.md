@@ -9,3 +9,7 @@ Here is a basic website that demonstrates HTML, CSS, JS & PHP knowledge
 # Input Form
 
 <img src="./REDME INFO/Input Form.png">
+
+# Records Page
+
+<img src="./REDME INFO/Records.png">
