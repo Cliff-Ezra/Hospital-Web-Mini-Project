@@ -105,6 +105,10 @@ span {
   color: red;
 }
 
+.input.error {
+  border: 1px solid red;
+}
+
 /* !Trying to center a div */
 /* .grid {
     position: absolute;

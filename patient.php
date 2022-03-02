@@ -35,7 +35,6 @@ if (isset($_POST["submit"])) {
     }
 
 
-
     if (isset($_POST["submit"])) {
         if (!empty($_POST["patient"]) && (!empty($_POST["surname"]))) {
             $patient = $_POST["patient"];
@@ -106,7 +105,7 @@ function Test_User_Input($Data)
 
             <div class="ip">
                 <label for="patient">Patient ID: </label>
-                <input type="text" name="patient" id="patient">
+                <input type="text" name="patient" id="patient" class="input">
                 <br>
                 <span class="error">
                     <?php
@@ -119,7 +118,7 @@ function Test_User_Input($Data)
 
             <div class="ip">
                 <label for="first_name">First Name: </label>
-                <input type="text" name="first_name" id="first_name">
+                <input type="text" name="first_name" id="first_name" class="input">
                 <br>
                 <span class="error">
                     <?php
@@ -132,7 +131,7 @@ function Test_User_Input($Data)
 
             <div class="ip">
                 <label for="middle_name">Middle Name: </label>
-                <input type="text" name="middle_name" id="middle_name">
+                <input type="text" name="middle_name" id="middle_name" class="input">
                 <br>
                 <span class="error">
                     <?php
@@ -145,7 +144,7 @@ function Test_User_Input($Data)
 
             <div class="ip">
                 <label for="surname">Surname Name: </label>
-                <input type="text" name="surname" id="surname">
+                <input type="text" name="surname" id="surname" class="input">
                 <br>
                 <span class="error">
                     <?php
@@ -158,14 +157,14 @@ function Test_User_Input($Data)
 
             <div class="ip">
                 <label for="dob">Date of Birth: </label>
-                <input type="date" name="dob" id="dob" value="mm/dd/yyy">
+                <input type="date" name="dob" id="dob" value="mm/dd/yyy" class="input">
             </div>
 
             <br>
 
             <div class="ip">
                 <label for=" gender">Gender: </label>
-                <select class="form-control" name="gender" id="gender">
+                <select class="form-control" name="gender" id="gender" class="input">
                     <option value="">Select...</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -177,7 +176,7 @@ function Test_User_Input($Data)
 
             <div class="ip">
                 <label for="county">County of Residence</label>
-                <select class="form-control" name="county" id="county">
+                <select class="form-control" name="county" id="county" class="input">
                     <option value="">Select...</option>
                     <option value='Baringo'>Baringo</option>
                     <option value='Bomet'>Bomet</option>
@@ -238,6 +237,8 @@ function Test_User_Input($Data)
 
         </form>
     </div>
+
+    <script src="./app.js"></script>
 
 </body>
 
