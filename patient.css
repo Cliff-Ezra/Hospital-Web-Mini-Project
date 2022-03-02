@@ -101,6 +101,10 @@ input[type="date"] {
   font-size: 1.2rem;
 }
 
+span {
+  color: red;
+}
+
 /* !Trying to center a div */
 /* .grid {
     position: absolute;

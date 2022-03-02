@@ -1,81 +1,63 @@
 <?php
 
-require_once("./included/DB.php");
+// require_once("./included/DB.php");
 
-$patientError = "";
-$first_nameError = "";
-$middle_nameError = "";
-$surnameError = "";
-
-
+// For validating the inputs
 if (isset($_POST["submit"])) {
-
+    
     if (empty($_POST["patient"])) {
-        $patientError = "Patient ID is Required";
+        $patientError = "Patient ID Required!";
     } else {
         $patient = Test_User_Input($_POST["patient"]);
-    }
 
-    if (empty($_POST["first_name"])) {
-        $first_nameError = "First Name is Required";
-    } else {
-        $first_name = Test_User_Input($_POST["first_name"]);
-    }
-
-    if (empty($_POST["middle_name"])) {
-        $middle_nameError = "Middle Name is Required";
-    } else {
-        $middle_name = Test_User_Input($_POST["middle_name"]);
-    }
-
-    if (empty($_POST["surname"])) {
-        $surnameError = "Surname is Required";
-    } else {
-        $surname = Test_User_Input($_POST["surname"]);
-    }
-
-
-
-    if (isset($_POST["submit"])) {
-        if (!empty($_POST["patient"]) && (!empty($_POST["surname"]))) {
-            $patient = $_POST["patient"];
-            $first_name = $_POST["first_name"];
-            $middle_name = $_POST["middle_name"];
-            $surname = $_POST["surname"];
-            $dob = $_POST["dob"];
-            $gender = $_POST["gender"];
-            $county = $_POST["county"];
-
-            $ConnectingDB;
-            $sql = "INSERT INTO p_record(patient, first_name, middle_name, surname, dob, gender, county)
-            VALUES(:patienT,:first_namE,:middle_namE,:surnamE,:doB,:gendeR,:countY)";
-
-            $stmt = $ConnectingDB->prepare($sql);
-
-            $stmt->bindValue(':patienT', $patient);
-            $stmt->bindValue(':first_namE', $first_name);
-            $stmt->bindValue(':middle_namE', $middle_name);
-            $stmt->bindValue(':surnamE', $surname);
-            $stmt->bindValue(':doB', $dob);
-            $stmt->bindValue(':gendeR', $gender);
-            $stmt->bindValue(':countY', $county);
-
-            $execute = $stmt->execute();
-            if ($execute) {
-                echo '<span class="success"> Record has been added Successfully</span>';
-            }
-        } else {
-            echo '<span class="fieldInfoHeading"> Please add Patient ID and Surname to Continue </span>';
+        if (!preg_match("/(P15)\/+[0-9]+/", $patient)) {
+            $patientError = "Invalid Patient ID!";
         }
     }
+
+
+
+
+
+    // For Submitting the info to the DB
+    // if (isset($_POST["submit"])) {
+    //     if (!empty($_POST["patient"]) && (!empty($_POST["surname"]))) {
+    //         $patient = $_POST["patient"];
+    //         $first_name = $_POST["first_name"];
+    //         $middle_name = $_POST["middle_name"];
+    //         $surname = $_POST["surname"];
+    //         $dob = $_POST["dob"];
+    //         $gender = $_POST["gender"];
+    //         $county = $_POST["county"];
+
+    //         $ConnectingDB;
+    //         $sql = "INSERT INTO p_record(patient, first_name, middle_name, surname, dob, gender, county)
+    //     VALUES(:patienT,:first_namE,:middle_namE,:surnamE,:doB,:gendeR,:countY)";
+
+    //         $stmt = $ConnectingDB->prepare($sql);
+
+    //         $stmt->bindValue(':patienT', $patient);
+    //         $stmt->bindValue(':first_namE', $first_name);
+    //         $stmt->bindValue(':middle_namE', $middle_name);
+    //         $stmt->bindValue(':surnamE', $surname);
+    //         $stmt->bindValue(':doB', $dob);
+    //         $stmt->bindValue(':gendeR', $gender);
+    //         $stmt->bindValue(':countY', $county);
+
+    //         $execute = $stmt->execute();
+    //         if ($execute) {
+    //             echo '<span class="success"> Record has been added Successfully</span>';
+    //         }
+    //     } else {
+    //         echo '<span class="fieldInfoHeading"> Please add Patient ID and Surname to Continue </span>';
+    //     }
+    // }
 }
 
-function Test_User_Input($Data)
+function Test_User_Input($data)
 {
-    return $Data;
+    return $data;
 }
-
-
 
 
 ?>
@@ -107,25 +89,19 @@ function Test_User_Input($Data)
             <div class="ip">
                 <label for="patient">Patient ID: </label>
                 <input type="text" name="patient" id="patient">
-                <br>
-                <span class="error">
-                    <?php
-                    echo $patientError;
-                    ?>
-                </span>
             </div>
+
+            <span class="error">
+                <?php
+                echo $patientError;
+                ?>
+            </span>
 
             <br>
 
             <div class="ip">
                 <label for="first_name">First Name: </label>
                 <input type="text" name="first_name" id="first_name">
-                <br>
-                <span class="error">
-                    <?php
-                    echo $first_nameError;
-                    ?>
-                </span>
             </div>
 
             <br>
@@ -133,12 +109,6 @@ function Test_User_Input($Data)
             <div class="ip">
                 <label for="middle_name">Middle Name: </label>
                 <input type="text" name="middle_name" id="middle_name">
-                <br>
-                <span class="error">
-                    <?php
-                    echo $middle_nameError;
-                    ?>
-                </span>
             </div>
 
             <br>
@@ -146,12 +116,6 @@ function Test_User_Input($Data)
             <div class="ip">
                 <label for="surname">Surname Name: </label>
                 <input type="text" name="surname" id="surname">
-                <br>
-                <span class="error">
-                    <?php
-                    echo $surnameError;
-                    ?>
-                </span>
             </div>
 
             <br>
